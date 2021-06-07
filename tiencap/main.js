@@ -7,16 +7,21 @@ const kenhCaoCapDoanhNghiep = 50;
 // var ketNoi =
 var tongTien = 0;
 function hoaDonNhaDan(kenhCaoCap) {
-  tongTien = kenhCaoCap * kenhCaoCapNhaDan + phiHoaDonNhaDan + phiDiChVuNhaDan;
+  if (kenhCaoCap >= 1) {
+    tongTien =
+      kenhCaoCap * kenhCaoCapNhaDan + phiHoaDonNhaDan + phiDiChVuNhaDan;
+  } else {
+    tongTien = 0;
+  }
 }
 function hoaDonDoanhNghiep(kenhCaoCap, ketNoi) {
-  if (ketNoi > 10) {
+  if (ketNoi > 10 && kenhCaoCap > 0) {
     tongTien =
       phiHoaDonDoanhNghiep +
       phiDiChVuDoanhNghiep +
       kenhCaoCapDoanhNghiep * kenhCaoCap +
       (ketNoi - 10) * 5;
-  } else {
+  } else if (ketNoi < 10 && kenhCaoCap > 0) {
     tongTien =
       phiHoaDonDoanhNghiep +
       phiDiChVuDoanhNghiep +
